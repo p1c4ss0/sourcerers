@@ -1,0 +1,335 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2021-10-13 21:27:29.506820",
+ "description": "Domestic Shippers",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info",
+  "shipper_name",
+  "country",
+  "tax_id",
+  "column_break0",
+  "shipper_type",
+  "pan",
+  "disabled",
+  "allowed_to_transact_section",
+  "companies",
+  "on_hold",
+  "hold_type",
+  "release_date",
+  "address_contacts",
+  "address_html",
+  "column_break1",
+  "contact_html",
+  "primary_address_and_contact_detail_section",
+  "shipper_primary_contact",
+  "mobile_no",
+  "email_id",
+  "column_break_44",
+  "supplier_primary_address",
+  "primary_address",
+  "default_payable_accounts",
+  "accounts",
+  "default_tax_withholding_config",
+  "column_break2",
+  "website",
+  "supplier_details",
+  "column_break_30",
+  "language",
+  "is_frozen"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info",
+   "fieldtype": "Section Break",
+   "label": "Name and Type",
+   "oldfieldtype": "Section Break",
+   "options": "fa fa-user"
+  },
+  {
+   "bold": 1,
+   "fieldname": "shipper_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Shipper Name",
+   "no_copy": 1,
+   "oldfieldname": "supplier_name",
+   "oldfieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "label": "Tax ID"
+  },
+  {
+   "fieldname": "column_break0",
+   "fieldtype": "Column Break",
+   "width": "50%"
+  },
+  {
+   "default": "Company",
+   "fieldname": "shipper_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Shipper Type",
+   "options": "Company\nIndividual",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pan",
+   "fieldtype": "Data",
+   "label": "PAN"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  },
+  {
+   "depends_on": "represents_company",
+   "fieldname": "allowed_to_transact_section",
+   "fieldtype": "Section Break",
+   "label": "Allowed To Transact With"
+  },
+  {
+   "depends_on": "represents_company",
+   "fieldname": "companies",
+   "fieldtype": "Table",
+   "label": "Allowed To Transact With",
+   "options": "Allowed To Transact With"
+  },
+  {
+   "default": "0",
+   "fieldname": "on_hold",
+   "fieldtype": "Check",
+   "label": "Block Shipper"
+  },
+  {
+   "depends_on": "eval:doc.on_hold",
+   "fieldname": "hold_type",
+   "fieldtype": "Select",
+   "label": "Hold Type",
+   "options": "\nAll\nInvoices\nPayments"
+  },
+  {
+   "depends_on": "eval:doc.on_hold",
+   "description": "Leave blank if the Supplier is blocked indefinitely",
+   "fieldname": "release_date",
+   "fieldtype": "Date",
+   "label": "Release Date"
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "address_contacts",
+   "fieldtype": "Section Break",
+   "label": "Address and Contacts",
+   "oldfieldtype": "Column Break",
+   "options": "fa fa-map-marker"
+  },
+  {
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break1",
+   "fieldtype": "Column Break",
+   "width": "50%"
+  },
+  {
+   "fieldname": "contact_html",
+   "fieldtype": "HTML",
+   "label": "Contact HTML",
+   "read_only": 1
+  },
+  {
+   "fieldname": "primary_address_and_contact_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Primary Address and Contact Detail"
+  },
+  {
+   "description": "Reselect, if the chosen contact is edited after save",
+   "fieldname": "shipper_primary_contact",
+   "fieldtype": "Link",
+   "label": "Shipper Primary Contact",
+   "options": "Contact"
+  },
+  {
+   "fetch_from": "supplier_primary_contact.mobile_no",
+   "fieldname": "mobile_no",
+   "fieldtype": "Read Only",
+   "label": "Mobile No"
+  },
+  {
+   "fetch_from": "supplier_primary_contact.email_id",
+   "fieldname": "email_id",
+   "fieldtype": "Read Only",
+   "label": "Email Id"
+  },
+  {
+   "fieldname": "column_break_44",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Reselect, if the chosen address is edited after save",
+   "fieldname": "supplier_primary_address",
+   "fieldtype": "Link",
+   "label": "Supplier Primary Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "primary_address",
+   "fieldtype": "Text",
+   "label": "Primary Address",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "accounts",
+   "fieldname": "default_payable_accounts",
+   "fieldtype": "Section Break",
+   "label": "Default Payable Accounts"
+  },
+  {
+   "description": "Mention if non-standard payable account",
+   "fieldname": "accounts",
+   "fieldtype": "Table",
+   "label": "Accounts",
+   "options": "Party Account"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "default_tax_withholding_config",
+   "fieldtype": "Section Break",
+   "label": "Default Tax Withholding Config"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "supplier_details",
+   "fieldname": "column_break2",
+   "fieldtype": "Section Break",
+   "label": "More Information",
+   "width": "50%"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "oldfieldname": "website",
+   "oldfieldtype": "Data"
+  },
+  {
+   "description": "Statutory info and other general information about your Supplier",
+   "fieldname": "supplier_details",
+   "fieldtype": "Text",
+   "label": "Supplier Details",
+   "oldfieldname": "supplier_details",
+   "oldfieldtype": "Code"
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Link",
+   "label": "Print Language",
+   "options": "Language"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_frozen",
+   "fieldtype": "Check",
+   "label": "Is Frozen"
+  }
+ ],
+ "icon": "fa fa-user",
+ "links": [
+  {
+   "group": "Allowed Items",
+   "link_doctype": "Party Specific Item",
+   "link_fieldname": "party"
+  }
+ ],
+ "modified": "2021-10-13 21:27:29.506820",
+ "modified_by": "Administrator",
+ "module": "Freight Forwarding",
+ "name": "Domestic Shippers",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase User"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Master Manager",
+   "set_user_permissions": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Stock User"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager"
+  },
+  {
+   "read": 1,
+   "role": "Accounts User"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "quick_entry": 1,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "title_field": "shipper_name",
+ "track_changes": 1
+}

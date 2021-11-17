@@ -1,0 +1,318 @@
+{
+ "actions": [
+  {
+   "action": "new_sales_invoice",
+   "action_type": "Server Action",
+   "label": "Create Invoice"
+  }
+ ],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2021-10-13 21:34:14.089286",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_details_section",
+  "supplier",
+  "customer_section",
+  "title",
+  "naming_series",
+  "customer",
+  "column_break_5",
+  "outstanding_balance",
+  "shipment_section",
+  "shipper_name",
+  "consignee_name",
+  "shipping_line",
+  "column_break_10",
+  "mbl",
+  "mbl_dt",
+  "hbl",
+  "hbl_dt",
+  "other_data_section",
+  "por",
+  "pol",
+  "pod",
+  "final_pod",
+  "incoterms",
+  "no_of_packages",
+  "column_break_17",
+  "gross_weight",
+  "charegeable_weight",
+  "cbm",
+  "commodity",
+  "etd",
+  "sb_details_section",
+  "sb_no",
+  "column_break_28",
+  "sb_dt",
+  "amended_from",
+  "container_details_section",
+  "containers"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vendor Details"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "allow_on_submit": 1,
+   "bold": 1,
+   "default": "{customer_name}",
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_global_search": 1,
+   "label": "Title",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_global_search": 1,
+   "label": "Sr No",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "outstanding_balance",
+   "fieldtype": "Data",
+   "label": "Outstanding Balance"
+  },
+  {
+   "fieldname": "shipment_section",
+   "fieldtype": "Section Break",
+   "label": "Bill of Lading Details"
+  },
+  {
+   "fieldname": "shipper_name",
+   "fieldtype": "Link",
+   "label": "Shipper Name",
+   "options": "Domestic Shippers"
+  },
+  {
+   "fieldname": "consignee_name",
+   "fieldtype": "Data",
+   "label": "Consignee Name"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "shipping_line",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Shipping Line",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "mbl",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "MBL#",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mbl_dt",
+   "fieldtype": "Date",
+   "label": "MBL Dt",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "hbl",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "HBL#"
+  },
+  {
+   "fieldname": "hbl_dt",
+   "fieldtype": "Date",
+   "label": "HBL Dt"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "other_data_section",
+   "fieldtype": "Section Break",
+   "label": "Other Data"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "por",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Place of Receipt",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pol",
+   "fieldtype": "Data",
+   "label": "Port of Loading",
+   "reqd": 1
+  },
+  {
+   "fieldname": "incoterms",
+   "fieldtype": "Select",
+   "label": "Incoterms",
+   "options": "EXW\nFCA\nFOB\nCIF\nDAP\nDDP"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "no_of_packages",
+   "fieldtype": "Int",
+   "label": "No. of Packages",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "gross_weight",
+   "fieldtype": "Float",
+   "label": "Gross Weight (Kgs)",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "charegeable_weight",
+   "fieldtype": "Float",
+   "label": "Chargeable Weight (Kgs)",
+   "non_negative": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "cbm",
+   "fieldtype": "Float",
+   "label": "CBM"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "commodity",
+   "fieldtype": "Data",
+   "label": "Commodity"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_details_section",
+   "fieldtype": "Section Break",
+   "label": "Shipping Bill Details"
+  },
+  {
+   "fieldname": "sb_no",
+   "fieldtype": "Data",
+   "label": "Shipping Bill No.",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sb_dt",
+   "fieldtype": "Date",
+   "label": "Shipping Bill Dt."
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "FCL Exports Booking",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "pod",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Port of Destination",
+   "reqd": 1
+  },
+  {
+   "fieldname": "container_details_section",
+   "fieldtype": "Section Break",
+   "label": "Container Details"
+  },
+  {
+   "columns": 1,
+   "fieldname": "containers",
+   "fieldtype": "Table",
+   "label": "Containers",
+   "options": "Container List",
+   "reqd": 1
+  },
+  {
+   "fieldname": "etd",
+   "fieldtype": "Date",
+   "label": "Vessel ETD at POL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "final_pod",
+   "fieldtype": "Data",
+   "label": "Final Port of Destination",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-10-13 23:53:01.532678",
+ "modified_by": "Administrator",
+ "module": "Freight Forwarding",
+ "name": "FCL Exports Booking",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
